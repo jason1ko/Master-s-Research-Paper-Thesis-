@@ -62,11 +62,10 @@ The limiting misclassification risk depends on the **Stieltjes transform** of th
 
 | File | Description |
 |------|--------------|
-| `simulate_Theta.R` | Computes Θ(λ) and classification error curves using empirical eigenvalues |
-| `compute_lambda_opt.R` | Searches for optimal λ that minimizes theoretical classification error |
-| `plot_error_AR1.R` | Plots Φ(−Θ) under AR(1) covariance for varying γ, ρ |
-| `plot_error_Matern.R` | Plots Φ(−Θ) under Matérn covariance (ν = 1/2) |
-| `utils.R` | Helper functions (Stieltjes transform, companion transform, derivatives, etc.) |
+| `ar1_example.R` | plot of $\Theta(\lambda)$, from Dobriban, E. & Wager, S. (2018) |
+| `rda_functions.R` |   |
+| `rda_rcpp2.cpp` |   |
+| `results.R` |   |
 
 ---
 
