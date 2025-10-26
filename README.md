@@ -71,9 +71,9 @@ The limiting misclassification risk depends on the **Stieltjes transform** of th
 
 ## 🔍 Numerical Patterns Observed
 
-- λ_opt **increases** with γ and **decreases** with ρ.  
-- Θ(λ_opt) is close to Θ(0) at small γ and approaches Θ(∞) as γ grows.  
-- Under Matérn covariance, Φ(−Θ(λ_opt)) and Φ(−Θ(∞)) nearly coincide, indicating smoother effective regularization.
+- $\lambda_{opt}$ **increases** with γ and **decreases** with ρ.  
+- $\Theta(\lambda_{opt})$ is close to $\Theta(0)$ at small γ and approaches $\Theta(\infty)$ as γ grows.  
+- Under Matérn covariance, $\Phi(−\Theta(\lambda_{opt}))$ and $\Phi(−\Theta(\infty))$ nearly coincide, indicating smoother effective regularization.
 
 ---
 
