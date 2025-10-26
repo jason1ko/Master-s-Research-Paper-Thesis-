@@ -2,8 +2,7 @@
 
 > R code accompanying my master’s research paper on regularized discriminant analysis (rLDA) in high-dimension, low-sample-size (HDLSS) settings. The project connects the MDP–MD continuum to asymptotic classification risk using random matrix theory, and provides a stable pipeline to compute the margin $\Theta(\lambda)$ and the optimal ridge $\lambda_{\text{opt}}(\gamma,\rho)$ for Toeplitz covariances (AR(1), Matérn).
 
-**Paper**: Ko Han Jun (Jan 2025), *Regularized Discriminant Analysis in HDLSS via Random Matrix Limits* (working title). :contentReference[oaicite:0]{index=0}
-
+**Paper**: Ko Han Jun (Jan 2025), *Regularized Discriminant Analysis in HDLSS via Random Matrix Limits* (working title).
 ---
 
 ## 🚀 What’s in this repo?
