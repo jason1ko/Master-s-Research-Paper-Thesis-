@@ -1,4 +1,4 @@
-# Regularized LDA in High Dimension: A Random Matrix Approach
+# Asymptotic Error and Regularization Path in High-Dimensional LDA: A Random Matrix Approach
 
 This repository accompanies my master's research paper, which studies **regularized discriminant analysis (rLDA)** in the **high-dimensional, low-sample-size (HDLSS)** regime using tools from **random matrix theory (RMT)**.  
 It contains selected **R codes** that reproduce the theoretical derivations, numerical experiments, and figures presented in the paper.
