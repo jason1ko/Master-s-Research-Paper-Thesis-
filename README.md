@@ -63,9 +63,9 @@ The limiting misclassification risk depends on the **Stieltjes transform** of th
 | File | Description |
 |------|--------------|
 | `ar1_example.R` | plot of $\Theta(\lambda)$, from Dobriban, E. & Wager, S. (2018) |
-| `rda_functions.R` |   |
-| `rda_rcpp2.cpp` |   |
-| `results.R` |   |
+| `rda_functions.R` | calculate Stieltjes functions, from Dobriban, E. & Wager, S. (2018) |
+| `rda_rcpp2.cpp` | generate multivariate Normal using Rcpp |
+| `results.R` | includes all codes and functions needed for the paper |
 
 ---
 
