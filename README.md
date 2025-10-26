@@ -1,22 +1,88 @@
-# Regularized LDA in the HDLSS Regime: Random-Matrix Limits & Toeplitz Covariances
+# Regularized LDA in High Dimension: A Random Matrix Approach
 
-> R code accompanying my master’s research paper on regularized discriminant analysis (rLDA) in high-dimension, low-sample-size (HDLSS) settings. The project connects the MDP–MD continuum to asymptotic classification risk using random matrix theory, and provides a stable pipeline to compute the margin $\Theta(\lambda)$ and the optimal ridge $\lambda_{\text{opt}}(\gamma,\rho)$ for Toeplitz covariances (AR(1), Matérn).
+This repository accompanies my master's research paper, which studies **regularized discriminant analysis (rLDA)** in the **high-dimensional, low-sample-size (HDLSS)** regime using tools from **random matrix theory (RMT)**.  
+It contains selected **R codes** that reproduce the theoretical derivations, numerical experiments, and figures presented in the paper.
 
-**Paper**: Ko Han Jun (2025), *Regularized Discriminant Analysis in HDLSS via Random Matrix Limits* (working title).
 ---
 
-## 🚀 What’s in this repo?
+## 📘 Paper Overview
 
-- **Reusable R functions** to compute Stieltjes-based quantities and the margin
-  $\Theta(\lambda)$, then trace the error $\Phi(-\Theta(\lambda))$ along the regularization path.
-- **Experiments for AR(1) and Matérn** Toeplitz covariances: maps of $\lambda_{\text{opt}}(\gamma,\rho)$
-  and comparisons with the MDP ($\lambda=0$) and MD ($\lambda=\infty$) ends.
-- **Figure scripts** to reproduce the main plots (risk curves, optimal-$\lambda$ trends).
+**Title:** *Regularized Discriminant Analysis in the HDLSS Regime: A Random Matrix Perspective*  
+**Author:** Han Jun Ko  
+**Date:** January 2025  
+**Institution:** Yonsei University, Department of Statistics  
 
-> Key takeaways from the paper:
-> - Under $\Sigma=I$, we derive a **piecewise closed form** for the MDP limit $\Theta(0)$ across $\gamma<1$, $\gamma=1$, $\gamma>1$, producing an error curve peaking at $\gamma=1$.
-> - **Toeplitz families (AR(1), Matérn)** satisfy the spectral assumptions for the limiting risk (via Szegő arguments), justifying their use.
-> - We provide a **numerically stable pipeline** to evaluate $\Theta(\lambda)$ and **map $\lambda_{\text{opt}}(\gamma,\rho)$**:
->   - $\lambda_{\text{opt}}$ ↑ as aspect ratio $\gamma$ ↑; $\lambda_{\text{opt}}$ ↓ as correlation strength $\rho$ ↑.
->   - $\Theta(\lambda_{\text{opt}})$ is close to $\Theta(0)$ for small $\gamma$ and close to $\Theta(\infty)$ for large $\gamma$.
->   - Under Matérn, the gap to MD is uniformly smaller than under AR(1).
+### Abstract (Summary)
+
+This work analyzes the asymptotic classification error of ridge-regularized LDA in the HDLSS regime.  
+We establish explicit limiting forms for the misclassification risk:
+
+$$
+\mathrm{Err}(\hat{w}_\lambda) \to \Phi(-\Theta(\lambda))
+$$
+
+and provide theoretical and numerical characterization of the optimal regularization parameter λ as a function of the aspect ratio  
+γ = p/n and correlation strength ρ in Toeplitz covariance structures (AR(1), Matérn).
+
+---
+
+## 🧮 Key Contributions
+
+1. **Closed-form limit under Σ = I**  
+   - Derived a piecewise closed-form expression for the MDP limit Θ(0) across regimes γ < 1, γ = 1, γ > 1.  
+   - Theoretical error curve Φ(−Θ(0)) peaks at γ = 1, reconciling classical HDLSS observations.
+
+2. **Toeplitz Covariance Validation**  
+   - Verified via **Szegő’s theorem** that AR(1) and Matérn covariances satisfy RMT spectral assumptions.
+
+3. **Stable Approximation Pipeline**  
+   - Implemented a numerically stable computation of Θ(λ) using empirical spectral sums.  
+   - Mapped **λ_opt(γ, ρ)** and analyzed the transition between MDP (λ=0) and MD (λ=∞).
+
+---
+
+## 🧠 Theoretical Framework
+
+Regularized LDA forms a continuum between the **Maximal Data Piling (MDP)** and **Mean Difference (MD)** rules:
+
+$$
+v(\lambda) = (CC^\top + \lambda I)^{-1} w, \quad \lambda > 0.
+$$
+
+As λ varies:
+- λ = 0 → Maximal Data Piling (MDP)
+- λ = ∞ → Mean Difference (MD)
+- Intermediate λ → Ridge-regularized direction connecting both ends
+
+The limiting misclassification risk depends on the **Stieltjes transform** of the sample covariance spectral distribution (Marchenko–Pastur law).
+
+---
+
+## 📊 Repository Contents
+
+| File | Description |
+|------|--------------|
+| `simulate_Theta.R` | Computes Θ(λ) and classification error curves using empirical eigenvalues |
+| `compute_lambda_opt.R` | Searches for optimal λ that minimizes theoretical classification error |
+| `plot_error_AR1.R` | Plots Φ(−Θ) under AR(1) covariance for varying γ, ρ |
+| `plot_error_Matern.R` | Plots Φ(−Θ) under Matérn covariance (ν = 1/2) |
+| `utils.R` | Helper functions (Stieltjes transform, companion transform, derivatives, etc.) |
+
+---
+
+## 🔍 Numerical Patterns Observed
+
+- λ_opt **increases** with γ and **decreases** with ρ.  
+- Θ(λ_opt) is close to Θ(0) at small γ and approaches Θ(∞) as γ grows.  
+- Under Matérn covariance, Φ(−Θ(λ_opt)) and Φ(−Θ(∞)) nearly coincide, indicating smoother effective regularization.
+
+---
+
+## 🔗 Key References
+
+- Dobriban, E. & Wager, S. (2018). High-dimensional asymptotics of prediction: Ridge regression and classification. Annals of Statistics.
+- Ahn, J. & Marron, J. S. (2010). The maximal data piling direction for discrimination. Biometrika.
+- Lee, M. H., Ahn, J., & Jeon, Y. (2013). HDLSS discrimination with adaptive data piling. JCGS.
+- Bai, Z. & Silverstein, J. (2010). Spectral Analysis of Large Dimensional Random Matrices. Springer.
+
+---
